@@ -6,7 +6,6 @@ const { ProvidePlugin } = require("webpack");
 const WebpackBar = require('webpackbar');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-
 module.exports = {
   target: 'web',
   context: path.join(__dirname, '../'),
@@ -16,7 +15,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "../assets/webpack_bundles/"),
-    publicPath: "/static/webpack_bundles/",
+    publicPath: "/static/webpack_bundles/", // Django will serve from STATIC_URL
     filename: "js/[name]-[fullhash].js",
     chunkFilename: "js/[name]-[fullhash].js",
     clean: true,
@@ -29,32 +28,14 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash].css' }),
     new CopyPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, "../static/images/favicons"),
-          to: "images",
-        },
-        {
-          from: path.resolve(__dirname, "../static/images/sections"),
-          to: "images",
-        },
-        {
-          from: path.resolve(__dirname, "../static/videos"),
-          to: "videos",
-        },
-        {
-          from: path.resolve(__dirname, "../static/images/icons"),
-          to: "images",
-        },
-        {
-          from: path.resolve(__dirname, "../static/images/avatar"),
-          to: "images",
-        },
-      ]
+        { from: path.resolve(__dirname, "../static/images/favicons"), to: "images" },
+        { from: path.resolve(__dirname, "../static/images/sections"), to: "images" },
+        { from: path.resolve(__dirname, "../static/images/icons"), to: "images" },
+        { from: path.resolve(__dirname, "../static/images/avatar"), to: "images" },
+        { from: path.resolve(__dirname, "../static/videos"), to: "videos" },
+      ],
     }),
-    new WebpackBar({
-      name: 'Compilation',
-      color: 'green',
-    }),
+    new WebpackBar({ name: 'Compilation', color: 'green' }),
     new ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -72,10 +53,7 @@ module.exports = {
               "imagemin-svgo",
               {
                 plugins: [
-                  {
-                    name: "removeViewBox",
-                    active: false,
-                  },
+                  { name: "removeViewBox", active: false },
                 ],
               },
             ],
@@ -83,7 +61,6 @@ module.exports = {
         },
       },
     }),
-
   ],
   module: {
     rules: [
@@ -102,49 +79,39 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|webp|svg)$/i,
-        type: "asset",
+        test: /\.(png|jpe?g|webp)$/i,
+        exclude: /node_modules/,
+        type: "asset/resource",
         generator: {
           filename: "images/[name].[hash][ext]",
-          publicPath: "/static/webpack_bundles/",
+          publicPath: "/assets/webpack_bundles/",
         },
-        exclude: /data:image/,
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              url: true,
-            },
-          },
-        ],
       },
       {
         test: /\.s[ac]ss$/i,
+
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: {
-              importLoaders: 2,
-              url: true,
-            },
+            options: { importLoaders: 2, url: true },
           },
-          "sass-loader",
+          { loader: "resolve-url-loader", options: {} }, // resolves relative paths
+          {
+            loader: "sass-loader",
+            options: { sourceMap: true }, // sourceMap is required for resolve-url-loader
+          },
         ],
       },
+
+
     ],
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@images": path.resolve(__dirname, "../static/images"),
-      "@fonts": path.resolve(__dirname, "../static/fonts"),
-      "@/src": path.resolve(__dirname, "../static/src")
+      "@/src": path.resolve(__dirname, "../static/src"),
     },
   },
 };

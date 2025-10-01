@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Jeckonia" />
     <meta name="author" content="kwasa" />
-    <link rel="icon" href="{% webpack_static 'images/favicon.ico' %}" />
-    <link rel="shortcut icon" href="{% webpack_static 'images/favicon.png' %}" />
+    <link rel="icon" href="{% webpack_static 'images/favicon.png' %}" />
     <link rel="apple-touch-icon-precomposed"
           href="{% webpack_static 'images/favicon.png' %}" />
+        
     {% block css %}
       <!-- Your stuff: Third-party CSS libraries go here -->
       <!-- This file stores project-specific CSS -->
@@ -39,16 +39,16 @@
         <video class="body-overlay" muted autoplay loop playsinline>
           <source src="{% webpack_static 'videos/video.mp4' %}" type="video/mp4" />
         </video>
-        <div class="tf-btn-menu d-xl-none">
+        <div class="kwasa-btn-menu d-xl-none">
           <img src="{% webpack_static 'images/dashboard.svg' %}" alt="" />
         </div>
-        <div class="tf-sidebar-menu tf-canvas">{% include 'components/sidebar.html' %}</div>
+        <div class="kwasa-sidebar-menu tf-canvas">{% include 'components/sidebar.html' %}</div>
         <ul class="right-nav nav-scroll">
           {% include 'components/navbar.html' %}
         </ul>
         <div class="line-page"></div>
         {% block content %}{% endblock %}
-        <footer class="tf-footer style-2 section-has-dot">
+        <footer class="kwasa-footer style-2 section-has-dot">
           <span></span>
           {% include 'components/footer.html' %}
           <img src="{% webpack_static 'images/footer.png' %}" alt="" class="map" />
