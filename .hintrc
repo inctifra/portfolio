@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "flex-direction",
+          "flex-grow",
+          "grid-template-columns",
+          "display: grid",
+          "backdrop-filter",
+          "mask-size",
+          "-webkit-mask-size",
+          "hyphens",
+          "order",
+          "-webkit-text-size-adjust"
+        ]
+      }
+    ]
+  }
+}

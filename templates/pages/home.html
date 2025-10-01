@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% load webpack_static from webpack_loader %}
+{% load static %}
+
+{% block content %}
+  <div class="main-content relative">
+    <!-- section-header -->
+    <div class="section-has-dot section-header">
+      <span></span>
+      <div class="tf-container">
+        <div class="row">
+          <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8">
+            <div class="header-inner">
+              <div class="logo-wrap">KWASA</div>
+              <div class="box-status">
+                <div class="dot"></div>
+                <div class="text-body-1">
+                  Available for <span class="number">Work</span>
+                </div>
+              </div>
+              <div class="header-right">
+                <div class="text-body-2 fw-medium place">Nairobi, Kenya</div>
+                <div class="text-body-2 fw-medium time" id="clock">10:24 AM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /section-header -->
+    <!-- wrapper-content -->
+    <div class="wrapper-content-1 relative overflow-hidden">
+      <!-- section-banner -->
+      <div class="section-has-dot section-banner style-lg" id="home">
+        <span></span>
+        <div class="tf-container">
+          <div class="row">
+            <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8">
+              <div class="wrap-section">
+                <div class="image">
+                  <div class="avatar avatar-wrap">
+                    <img class="lazyload avatar-bg"
+                         src="{% webpack_static 'images/avatar-full.png' %}"
+                         data-src="{% webpack_static 'images/avatar-full.png' %}"
+                         alt="" />
+                    <img class="lazyload avatar-no-bg"
+                         style="display: none"
+                         src="{% webpack_static 'images/avatar-1.png' %}"
+                         data-src="{% webpack_static 'images/avatar-1.png' %}"
+                         alt="" />
+                  </div>
+                  <div class="text-signature">Jeckonia</div>
+                </div>
+                <div class="infor">
+                  <div class="text sub-heading split-text effect-right">
+                    Hi, I'm <span class="fw-medium">Jeckonia Kwasa</span>.
+                    <br />
+                    Working as a <span class="fw-medium">Pharmacist</span> and a <span class="fw-medium">Developer</span>
+                  </div>
+                </div>
+                <ul class="social-links style-1 justify-content-center wow fadeInUp">
+                  <li>
+                    <a href="#"><i class="icon icon-twitter-x"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="icon icon-instagram"></i></a>
+                  </li>
+                </ul>
+                <div class="bottom">
+                  <a href="#contact" class="btns-link wow fadeInUp">
+                    <div class="text-body-1 text">Start a Project</div>
+                    <i class="icon icon-arrow-top-right"></i>
+                  </a>
+                  <a href="#works" class="btns-link1 wow fadeInUp">
+                    <div class="text-body-1 text">View my Works</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /section-banner -->
+      <!-- section-hero -->
+      <div class="section-has-dot section-hero">
+        <span></span>
+        <div class="tf-container">
+          <div class="row">
+            <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8">
+              <div class="wrap-section">
+                <div class="indicators">
+                  <div class="indicators-wrap">
+                    <div class="indicators-item wow fadeInUp">
+                      <div class="text-body-1 dot-before indicators-title">Net Worth Gross</div>
+                      <div class="wg-counter style-1">
+                        <div class="flex align-items-center justify-content-end">
+                          <div class="odometer text-display-2" data-number="20">10</div>
+                          <span class="sub-odo text-display-2">M+</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="indicators-item wow fadeInUp" data-wow-delay="0.1s">
+                      <div class="text-body-1 dot-before indicators-title">Success Rate</div>
+                      <div class="wg-counter style-1">
+                        <div class="flex align-items-center justify-content-end">
+                          <div class="odometer text-display-2" data-number="98">10</div>
+                          <span class="sub-odo text-display-2">%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="more-infor">
+                    <div class="customer-box">
+                      <div>
+                        <div class="ratings">
+                          <i class="icon icon-star-solid"></i>
+                          <i class="icon icon-star-solid"></i>
+                          <i class="icon icon-star-solid"></i>
+                          <i class="icon icon-star-solid"></i>
+                          <i class="icon icon-star-solid"></i>
+                        </div>
+                        <div class="text-body-2 fw-medium text">50+ Customer</div>
+                      </div>
+                    </div>
+                    <div class="worldwide style-1 text-body-1">
+                      <div class="text d-md-block d-none">
+                        Ready for <span>Global Project</span>
+                      </div>
+                      <div class="line"></div>
+                      <i class="icon icon-global"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /section-hero -->
+      <!-- section-experiences -->
+      {% include "pages/sections/experience.html" %}
+      <!-- /section-experiences -->
+      <div class="box-gradient1 img_bg-1"></div>
+      <!-- /section-selected-works -->
+      <!-- section-services -->
+      {% include "pages/sections/services.html" %}
+      <div class="box-gradient1 img_bg-2"></div>
+      <!-- /section-services -->
+      <!-- section-about -->
+      <section class="section-has-dot section-about v2" id="about">
+        <span></span>
+        <div class="tf-container">
+          <div class="row">
+            <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8">
+              <div class="wrap-section">
+                <div class="heading">
+                  <div class="text-body-2 dot-before subtitle fw-medium">About Me</div>
+                  <div>
+                    <h2 class="fw-medium title text-color-change">Bridging Technology & Science to Build Meaningful Experiences</h2>
+                    <div class="text-body-2 text">
+                      I am a passionate **full-stack developer** and **pharmacy student**, combining analytical thinking with creativity.
+                      My journey spans from building **responsive web applications** and **SaaS platforms** to exploring the scientific world of pharmaceuticals.
+                      Every project I touch is driven by purpose, precision, and a desire to solve real-world problems.
+                    </div>
+                  </div>
+                </div>
+                <div class="box-playground">
+                  <div class="top">
+                    <div class="text-body-1 fw-medium instagram-tag">@kwasa.dev</div>
+                    <div class="box-nav style-1">
+                      <div class="nav-sw navigation-prev-playground">
+                        <span class="icon icon-angle-left-solid"></span>
+                      </div>
+                      <div class="nav-sw navigation-next-playground">
+                        <span class="icon icon-angle-right-solid"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wrap-swiper">
+                    <div class="swiper slider-playground swiper-auto">
+                      <div class="swiper-wrapper">
+                        <!-- Replace these slides with project images or pharmacy-related visuals -->
+                        <div class="swiper-slide">
+                          <a href="{% webpack_static 'images/project.jpg' %}"
+                             data-lightbox="example-2">
+                            <img class="lazyload"
+                                 src="{% webpack_static 'images/project.jpg' %}"
+                                 data-src="{% webpack_static 'images/project.jpg' %}"
+                                 alt="Project 1" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /section-about -->
+      <!-- section-tech-stack -->
+      {% include "pages/sections/stack.html" %}
+      <!-- /section-tech-stack -->
+      <!-- /section-partner -->
+      <!-- section-testimonial -->
+      {% include "pages/sections/testimonials.html" %}
+      <!-- section-pricing -->
+      {% include "pages/sections/pricing.html" %}
+      <!-- /section-pricing -->
+      <!-- section-faqs -->
+      {% include "pages/sections/faqs.html" %}
+      <!-- /section-faqs -->
+      <!-- section-contact -->
+      {% include "pages/sections/contact.html" %}
+      <!-- /section-contact -->
+    </div>
+    <!-- /wrapper-content -->
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "custom_bootstrap_vars";
+@import "~bootstrap/scss/bootstrap";
+:root {
+  --font-inter: "Inter", sans-serif;
+  --font-dm-sns: "DM Sans", sans-serif;
+}
+// Vendors
+
+@import "main";
+
+@import "swiper/css";
+
+@import "odometer/themes/odometer-theme-default.css"; // pick theme
+@import "lightbox2/dist/css/lightbox.min.css";
+@import "animate.css/animate.min.css";
+// project specific CSS goes here
+
+///////////////
+// Variables //
+///////////////
+
+// Alert colors
+
+$white: #fff;
+$mint-green: #d6e9c6;
+$black: #000;
+$pink: #f2dede;
+$dark-pink: #eed3d7;
+$red: #b94a48;
+
+////////////
+// Alerts //
+////////////
+
+
+.alert-debug {
+  background-color: $white;
+  border-color: $mint-green;
+  color: $black;
+}
+
+.alert-error {
+  background-color: $pink;
+  border-color: $dark-pink;
+  color: $red;
+}
+
+body {
+  font-family: var(--font-inter) !important;
+  font-weight: 400;
+  font-style: normal;
+}
